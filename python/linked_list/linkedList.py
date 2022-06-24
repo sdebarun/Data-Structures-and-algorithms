@@ -1,11 +1,12 @@
 class myLinekdList:
+    length = 0
     def __init__(self, value) -> None:
         self.head = {
             "value" : value,
             "next" : None
         }
         self.tail = self.head
-
+        self.length = self.length + 1
     def append(self,value) :
         new_node = {
             "value" : value,
@@ -14,6 +15,7 @@ class myLinekdList:
         self.tail['next'] = new_node
         self.tail = new_node
         # print(self.head)
+        self.length += 1
         return self.head
         
     
@@ -23,7 +25,7 @@ class myLinekdList:
             "next"  : self.head
         }
         self.head = newNode
-
+        self.length = self.length + 1
         return self.head
 
 
@@ -33,3 +35,5 @@ print(myLinkedList.append(12))
 print(myLinkedList.append(13))
 # print(myLinekdList.viewList())
 print(myLinkedList.prepend(1))
+
+print(myLinkedList.length)
