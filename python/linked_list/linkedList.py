@@ -1,15 +1,13 @@
 
 #! [ Author : Debarun Saha ]
-#! [ Language - Python ]
+#! [ Language : Python ]
 #! [ Version : 3.8.9 ]
-#! [ Date : 24-06-2022 ]
 
-# Todo : custom linked list implementation in python
-# Todo : append  and prepend  has O(1)
-# Todo : insert will have O(n) - yet to be impleneted
-# Todo : delete will have O(n) - yet to be impleneted
-# Todo : The list will start with one node having value 10
-class myLinkedList:
+# ? Implementing linked list with python 
+# ? The list is initially started with a value 
+# ? using the constructor method. Later on shall
+# ? be populated with diffrent methods
+class myLinkedList :
     length = 0
     def __init__(self, value) -> None:
         self.head = {
@@ -19,7 +17,11 @@ class myLinkedList:
         self.tail = self.head
         self.length = self.length + 1
 
-    def append(self,value) :
+
+    # Todo: adding elements to the end of the linekd list (at the tail)
+    #* Time complexity = O(1)
+
+    def append(self,value) -> dict :
         new_node = {
             "value" : value,
             "next" : None
@@ -30,8 +32,10 @@ class myLinkedList:
         self.length += 1
         return self.head
         
-    
-    def prepend(self,value) :
+    # Todo: adding elements at the begining of the linked list (at the head) 
+    #* Time complexity = O(1)
+
+    def prepend(self,value) -> dict :
         newNode = {
             "value" : value,
             "next"  : self.head
@@ -39,28 +43,11 @@ class myLinkedList:
         self.head = newNode
         self.length = self.length + 1
         return self.head
-
-    def printList(self) : 
-        linkedList = list()
-        currentNode = self.head
-        while currentNode != None : 
-            # print(currentNode)
-            linkedList.append(currentNode['value'])
-            currentNode = currentNode['next']
-        print(linkedList)
-        return
     
-    def delete(self,value) :
-        index = self.getIndex(value)
-        deleteNode = self.lookup(index)
-        prevNodeOfDeleteNode = self.lookup(index-1)
-        nextNode = deleteNode['next']
-        prevNodeOfDeleteNode['next'] = nextNode
-        return self.head
+    # Todo: adding value at the provided index positonof the linked list
+    #* Time complexity = O(n)
 
-
-    def insert(self,index,value) :
-        currentNode = self.head
+    def insert(self,index,value) -> dict :
         newNode = {
             "value" : value,
             "next" : None
@@ -72,7 +59,21 @@ class myLinkedList:
         self.length += 1
         return self.head
 
-    def getIndex(self,value) :
+    # Todo: Deleting a value from linked list [ O(n) ]
+    #* Time complexity = O(n)
+
+    def delete(self,value) -> dict :
+        index = self.getIndex(value)
+        deleteNode = self.lookup(index)
+        prevNodeOfDeleteNode = self.lookup(index-1)
+        nextNodeOfDeleteNode = deleteNode['next']
+        prevNodeOfDeleteNode['next'] = nextNodeOfDeleteNode
+        return self.head
+
+    # Todo: Getting the positional index of a value of linked list 
+    #* Time complexity = O(n)
+    
+    def getIndex(self,value) -> int :
         currentNode = self.head
         index = 0
         while currentNode != None : 
@@ -82,7 +83,10 @@ class myLinkedList:
             currentNode = currentNode['next']    
             index += 1
 
-    def lookup(self, index) :    
+    # Todo: Traversing through the linked list to find the node at the given index
+    #* Time complexity = O(n)
+
+    def lookup(self, index) -> dict :    
         counter = 0
         currentNode  = self.head
         while counter != index :
@@ -90,6 +94,17 @@ class myLinkedList:
             counter += 1
         return currentNode
 
+    # Todo: Printing the linked list as an array. In python it is list.
+    #* Time complexity = O(n)
+
+    def printList(self) -> list : 
+        linkedList = list()
+        currentNode = self.head
+        while currentNode != None : 
+            linkedList.append(currentNode['value'])
+            currentNode = currentNode['next']
+        print(linkedList)
+        return
 
 
 myLinkedList = myLinkedList(10)
