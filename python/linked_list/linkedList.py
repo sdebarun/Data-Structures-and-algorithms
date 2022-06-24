@@ -1,6 +1,3 @@
-from hashlib import new
-
-
 class myLinekdList:
     def __init__(self, value) -> None:
         self.head = {
@@ -8,10 +5,6 @@ class myLinekdList:
             "next" : None
         }
         self.tail = self.head
-        # print(self.head)
-
-    # def viewList(self):
-    #     return self
 
     def append(self,value) :
         new_node = {
@@ -20,12 +13,23 @@ class myLinekdList:
         }
         self.tail['next'] = new_node
         self.tail = new_node
-        print(self.head)
-        # return self
+        # print(self.head)
+        return self.head
+        
     
+    def prepend(self,value) :
+        newNode = {
+            "value" : value,
+            "next"  : self.head
+        }
+        self.head = newNode
+
+        return self.head
+
 
 
 myLinkedList = myLinekdList(10)
 print(myLinkedList.append(12))
 print(myLinkedList.append(13))
 # print(myLinekdList.viewList())
+print(myLinkedList.prepend(1))
