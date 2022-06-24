@@ -3,10 +3,8 @@
 #! [ Language : Python ]
 #! [ Version : 3.8.9 ]
 
-# ? Implementing linked list with python 
-# ? The list is initially started with a value 
-# ? using the constructor method. Later on shall
-# ? be populated with diffrent methods
+# ? Implementing linked list with python. The list will initially start with a value 
+# ? using the constructor method. Later on shall be populated with diffrent methods
 class myLinkedList :
     length = 0
     def __init__(self, value) -> None:
@@ -48,6 +46,9 @@ class myLinkedList :
     #* Time complexity = O(n)
 
     def insert(self,index,value) -> dict :
+        if(index >= self.length) :
+            self.append(value)
+            return self.head
         newNode = {
             "value" : value,
             "next" : None
@@ -64,6 +65,9 @@ class myLinkedList :
 
     def delete(self,value) -> dict :
         index = self.getIndex(value)
+        if(index == None):
+            print('The value does not exist in the list')
+            return
         deleteNode = self.lookup(index)
         prevNodeOfDeleteNode = self.lookup(index-1)
         nextNodeOfDeleteNode = deleteNode['next']
@@ -130,7 +134,7 @@ myLinkedList.printList()
 
 # ? Adding 11 at the 2nd postion of the list
 
-print('Adding 1 in head of the list, i.e at the begining')
+print('Adding 11 at the 2nd postion of the list')
 myLinkedList.insert(2,11)
 myLinkedList.printList()
 
