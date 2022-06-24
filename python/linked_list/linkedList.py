@@ -104,29 +104,40 @@ class myLinkedList :
             linkedList.append(currentNode['value'])
             currentNode = currentNode['next']
         print(linkedList)
+        print()
         return
 
 
-myLinkedList = myLinkedList(10)
-myLinkedList.append(12)
+
+# ? Initiation of the linked list with a value
+
+print('Initiation of the linked list with a value')
+myLinkedList = myLinkedList(10) 
+myLinkedList.printList() 
+
+# ? Adding 12 & 13 in the tail, i.e, at the end of the linked list
+
+print('Adding 12 & 13 in the tail, i.e, at the end of the linked list')
+myLinkedList.append(12)  
 myLinkedList.append(13)
-# print(myLinekdList.viewList())
+myLinkedList.printList()
+
+# ? Adding 1 in head of the list, i.e at the begining
+
+print('Adding 1 in head of the list, i.e at the begining')
 myLinkedList.prepend(1)
-
-myLinkedList.printList()
-# print(myLinkedList.length)
-
-# myLinkedList.delete(12)
 myLinkedList.printList()
 
-# print(myLinkedList.lookup(2))
+# ? Adding 11 at the 2nd postion of the list
 
-print(myLinkedList.insert(2,11))
-
+print('Adding 1 in head of the list, i.e at the begining')
+myLinkedList.insert(2,11)
 myLinkedList.printList()
 
-print(myLinkedList.delete(12))
+# ? Deleting 12 from the list
 
+print('Deleting 12 from the list')
+myLinkedList.delete(12)
 myLinkedList.printList()
 
 
