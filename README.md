@@ -1,4 +1,4 @@
-# dsa
+# Data Structures and Algorithms
 Implementing data structructures and algorithms in Multiple languages.
 # Languages used 
  1. `PHP 7.4 or above`
